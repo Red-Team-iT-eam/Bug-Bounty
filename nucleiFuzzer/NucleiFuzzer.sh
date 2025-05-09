@@ -181,7 +181,7 @@ run_nuclei() {
     local url_file="$1"
     echo -e "${GREEN}Running Nuclei on URLs from $url_file...${RESET}"
     httpx -silent -mc 200,204,301,302,401,403,405,500,502,503,504 -l "$url_file" \
-        | nuclei -t "$TEMPLATE_DIR" -rl "$RATE_LIMIT" -o "$OUTPUT_FOLDER/nuclei_results.txt"
+        | nuclei2 -t "$TEMPLATE_DIR" -rl "$RATE_LIMIT" -o "$OUTPUT_FOLDER/nuclei_results.txt"
 }
 
 # Main logic
